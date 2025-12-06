@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0e17;
+  --foreground: #e8e6e3;
+  --gold: #c9a962;
+  --gold-light: #dcc584;
+  --gold-dark: #9a7a3a;
+  --navy-dark: #050810;
+  --navy: #0a0e17;
+  --navy-light: #141b2d;
+  --text-muted: #8b8680;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-text-muted: var(--text-muted);
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Border gradient */
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--navy), var(--navy)) padding-box,
+              linear-gradient(135deg, var(--gold), var(--gold-dark)) border-box;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 30px rgba(201, 169, 98, 0.15);
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(201, 169, 98, 0.3);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Animate on scroll */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative corners */
+.corner-decoration {
+  position: relative;
+}
+
+.corner-decoration::before,
+.corner-decoration::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: var(--gold);
+}
+
+.corner-decoration::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-decoration::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Quote styling */
+blockquote {
+  font-style: italic;
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  color: var(--gold-light);
+}
+
+/* Link styling */
+a {
+  transition: color 0.3s ease;
+}
+
+/* Button base */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--navy-dark);
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: rgba(201, 169, 98, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Stat card */
+.stat-card {
+  background: linear-gradient(180deg, var(--navy-light), var(--navy-dark));
+  border: 1px solid rgba(201, 169, 98, 0.2);
+}
+
+/* Section styling */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative line */
+.line-horizontal {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  width: 100%;
+}
+
+.line-vertical {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  height: 100%;
+}
+
+/* Hexagon logo styles */
+.hexagon-logo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/* Fade mask for text */
+.fade-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
